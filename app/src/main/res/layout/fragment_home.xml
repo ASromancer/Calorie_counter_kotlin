@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginRight="23dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_inter"
+                android:text="Today"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="28sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="166dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/rounded_layout">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/circularProgressIndicator"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="36dp"
+                        android:progress="25"
+                        app:indicatorColor="#F67416"
+                        app:indicatorSize="140dp"
+                        app:trackColor="#D8D8D8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        app:trackCornerRadius="8dp"
+                        app:trackThickness="18dp" />
+
+                    <TextView
+                        android:id="@+id/tv_home_calo_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_inter"
+                        android:gravity="right"
+                        android:padding="5dp"
+                        android:text="1780/2100"
+                        android:textColor="@color/black"
+                        android:textFontWeight="700"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/circularProgressIndicator"
+                        app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
+                        app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
+                        app:layout_constraintTop_toTopOf="@+id/circularProgressIndicator">
+
+                    </TextView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_marginLeft="28dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_inter"
+                            android:text="Height:"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="13sp">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/tv_home_height"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/font_inter"
+                            android:text="170cm"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_inter"
+                            android:text="Weight:"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="13sp">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/tv_home_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/font_inter"
+                            android:text="64kg"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_inter"
+                android:text="Today"
+                android:layout_marginTop="36dp"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="28sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="166dp"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_layout">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_home_category"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginBottom="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_inter"
+                android:text="Charts"
+                android:layout_marginTop="36dp"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="28sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:background="@drawable/custom_edit_text_date_picker"
+                    android:drawablePadding="10dp"
+                    android:paddingVertical="14dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="dd/MM/yyyy"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    app:drawableStartCompat="@drawable/baseline_date_range_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_layout"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_margin="18dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Consumed Calories"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_inter"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
+
+                    <androidx.legacy.widget.Space android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+
+                    <Spinner
+                        android:id="@+id/reportTypeSpn"
+                        android:layout_width="86dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/spinner_layout" />
+
+                </LinearLayout>
+
+                <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                    android:layout_marginBottom="50dp"/>
+
+                <TextView
+                    android:id="@+id/btnViewHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="View history"
+                    android:textAlignment="center"
+                    android:contextClickable="true"
+                    android:textStyle="bold|italic"
+                    android:textColor="#3a94a2"
+                    android:layout_gravity="bottom|center"/>
+
+
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/summaryCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="50dp"
+                app:cardCornerRadius="15dp"
+                android:background="@drawable/custom_edittext">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calories_summary_card_title"
+                    android:layout_margin="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="*"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center">
+
+                    <TableRow>
+                        <TextView
+                            android:gravity="end"
+                            android:paddingEnd="10dp"
+                            android:id="@+id/txtMax"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:text="@string/max_calories"
+                            android:textSize="14sp"/>
+                        <TextView
+                            android:paddingStart="10dp"
+                            android:textStyle="bold|italic"
+                            android:id="@+id/txtMaxVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Max Value"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"
+                            android:textColor="#32a055"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:gravity="end"
+                            android:paddingEnd="10dp"
+                            android:id="@+id/txtMin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/min_calories"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"/>
+                        <TextView
+                            android:paddingStart="10dp"
+                            android:textStyle="bold|italic"
+                            android:id="@+id/txtMinVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Min Value"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"
+                            android:textColor="#cd3238"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:gravity="end"
+                            android:paddingEnd="10dp"
+                            android:id="@+id/txtAverage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/average_calories"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"/>
+                        <TextView
+                            android:paddingStart="10dp"
+                            android:textStyle="bold|italic"
+                            android:id="@+id/txtAverageVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Average Value"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"
+                            android:textColor="#ddae49"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:gravity="end"
+                            android:paddingEnd="10dp"
+                            android:id="@+id/txtTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_calories"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"/>
+                        <TextView
+                            android:paddingStart="10dp"
+                            android:textStyle="bold|italic"
+                            android:id="@+id/txtTotalVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Value"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="15dp"
+                            android:textColor="#2061c1"/>
+                    </TableRow>
+
+                </TableLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

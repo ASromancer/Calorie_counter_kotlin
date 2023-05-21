@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TestKotlin</string>
+    <string name="title_home">Home</string>
+    <string name="title_category">Category</string>
+    <string name="title_tracking">Tracking</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_profile">Profile</string>
+    <string name="calories_summary_card_title">Calories Summary</string>
+    <string name="max_calories">Max</string>
+    <string name="min_calories">Min</string>
+    <string name="average_calories">Average</string>
+    <string name="total_calories">Total</string>
+</resources>
