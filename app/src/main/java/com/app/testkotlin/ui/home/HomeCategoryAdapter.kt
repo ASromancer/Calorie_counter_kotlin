@@ -1,13 +1,16 @@
 package com.app.testkotlin.ui.home
 
-import android.graphics.drawable.Drawable
+import android.app.Activity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.app.testkotlin.R
 import com.app.testkotlin.databinding.ItemHomeCategoryBinding
 import com.app.testkotlin.model.Category
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.Target
+
 
 class HomeCategoryAdapter(
     var mHomeFoodList: List<Category>,
@@ -17,7 +20,6 @@ class HomeCategoryAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemHomeCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
         return ViewHolder(binding)
     }
 
@@ -26,15 +28,25 @@ class HomeCategoryAdapter(
         with(holder){
             with(mHomeFoodList[position]){
                 binding.tvHomeCategory.text = this.name
-                Glide.with(holder.binding.ivHomeCategory.context)
+                Glide.with(binding.ivHomeCategory.context)
                     .load(this.image)
-                    .into(holder.binding.ivHomeCategory)
+                    .into(binding.ivHomeCategory)
+                binding.ivHomeCategory.setOnClickListener { v ->
+                    val controller = findNavController(
+                        (v.getContext() as Activity)!!,
+                        R.id.nav_host_fragment_activity_main
+                    )
+                    val bundle = Bundle()
+                    bundle.putInt("cateId", this.id)
+                    controller.navigate(R.id.fragment_food, bundle)
+                }
             }
         }
     }
 
-    // return the size of languageList
     override fun getItemCount(): Int {
         return mHomeFoodList.size
     }
+
+
 }

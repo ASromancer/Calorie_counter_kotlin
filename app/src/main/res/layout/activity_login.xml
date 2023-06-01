@@ -47,25 +47,19 @@
                     android:textColor="@color/black"
                     android:textColorHighlight="@color/cardview_dark_background"
                     android:layout_marginTop="40dp"/>
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:passwordToggleEnabled="true"
-                    app:hintEnabled="false">
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/edt_password"
-                        android:background="@drawable/custom_edittext"
-                        android:drawableStart="@drawable/baseline_lock_24"
-                        android:drawablePadding="8dp"
-                        android:hint="Password"
-                        android:padding="8dp"
-                        android:inputType="textPassword"
-                        android:textColor="@color/black"
-                        android:textColorHighlight="@color/cardview_dark_background"
-                        android:layout_marginTop="20dp"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="50dp"
+                    android:id="@+id/edt_password"
+                    android:background="@drawable/custom_edittext"
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Password"
+                    android:padding="8dp"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
 
                 <ProgressBar
                     android:layout_marginTop="20dp"
@@ -78,7 +72,7 @@
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/rounded_button"
                     android:text="Login"
                     android:textColor="@color/white"

@@ -14,15 +14,4 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
 
-    <TextView
-        android:id="@+id/tv_favorite_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Meat"
-        android:textSize="18sp"
-        android:fontFamily="@font/font_inter"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
-
 </androidx.cardview.widget.CardView>

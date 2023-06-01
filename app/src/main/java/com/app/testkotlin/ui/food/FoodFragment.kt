@@ -1,4 +1,4 @@
-package com.app.testkotlin.ui.home
+package com.app.testkotlin.ui.food
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,40 +9,47 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.testkotlin.R
+import com.app.testkotlin.databinding.FragmentFoodBinding
 import com.app.testkotlin.databinding.FragmentHomeBinding
-import com.app.testkotlin.ui.category.CategoryViewModel
+import com.app.testkotlin.ui.home.HomeCategoryAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
+class FoodFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentFoodBinding? = null
     private val binding get() = _binding!!
-    private val categoryViewModel: CategoryViewModel by viewModel()
+    private val foodViewModel: FoodViewModel by viewModel()
+    private var cateId: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+    ): View? {
+        _binding = FragmentFoodBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rcvHomeCategory.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rcvFood.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        if (arguments != null) {
+            cateId = requireArguments().getInt("cateId")
+        }
 
         val sharedPref: SharedPreferences = requireContext().getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
         val token = sharedPref.getString("token", null)
-
+        Log.i("cateId", cateId.toString())
         if (token != null) {
-            categoryViewModel.fetchCategory(token)
-            categoryViewModel.category.observe(viewLifecycleOwner) { categoryList ->
-                if (categoryList != null) {
-                    binding.rcvHomeCategory.adapter = HomeCategoryAdapter(categoryList)
+            foodViewModel.fetchFood(cateId, token)
+            foodViewModel.food.observe(viewLifecycleOwner) { foodList ->
+                if (foodList != null) {
+                    Log.i("Size", foodList.size.toString())
+                    binding.rcvFood.adapter = FoodAdapter(foodList)
                 }
             }
         } else {
@@ -50,8 +57,5 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }
