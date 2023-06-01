@@ -21,7 +21,7 @@ class TrackingViewModel(private val trackingRepository: TrackingRepository) : Vi
                     val result = response.body()
                     _report.value = result
                 } else {
-                    // Handle error
+                    _report.value = null
                 }
             }
 

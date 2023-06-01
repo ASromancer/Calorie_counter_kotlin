@@ -1,15 +1,16 @@
 package com.app.testkotlin.ui.tracking
 
+import android.R.attr.data
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.app.testkotlin.databinding.ItemTrackingBinding
 import com.app.testkotlin.dto.FoodTrackingHistory
 import com.bumptech.glide.Glide
 
+
 class TrackingListAdapter(
-    var mTrackingList: List<FoodTrackingHistory>,
+    var mTrackingList: MutableList<FoodTrackingHistory>,
 ) : RecyclerView.Adapter<TrackingListAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemTrackingBinding) : RecyclerView.ViewHolder(binding.root)
@@ -19,9 +20,13 @@ class TrackingListAdapter(
         return ViewHolder(binding)
     }
 
+    fun removeItem(position: Int) {
+        mTrackingList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
     override fun getItemCount(): Int {
         return mTrackingList.size    }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
@@ -31,7 +36,7 @@ class TrackingListAdapter(
                 Glide.with(binding.ivTrackingImage.context)
                     .load(this.food?.image)
                     .into(binding.ivTrackingImage)
-                binding.tvTrackingKcal.text = this.consumedCalories.toString()
+                binding.tvTrackingKcal.text = this.consumedCalories.toString() + " kcal"
                 }
             }
         }
