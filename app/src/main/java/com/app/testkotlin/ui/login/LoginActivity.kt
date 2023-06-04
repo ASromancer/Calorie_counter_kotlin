@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.app.testkotlin.MainActivity
 import com.app.testkotlin.databinding.ActivityLoginBinding
+import com.app.testkotlin.ui.register.RegisterActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -24,6 +24,11 @@ class LoginActivity : AppCompatActivity() {
         binding.edtUsername.setText("hiep")
         binding.edtPassword.setText("31100102")
         binding.pgBar.visibility = View.GONE
+
+        binding.btnSignUp.setOnClickListener {
+            val intentRegister = Intent(this, RegisterActivity::class.java)
+            startActivity(intentRegister)
+        }
 
         binding.btnLogin.setOnClickListener {
             binding.pgBar.visibility = View.VISIBLE
@@ -42,6 +47,11 @@ class LoginActivity : AppCompatActivity() {
                         val editor: SharedPreferences.Editor = sharedPref.edit()
 
                         editor.putString("token", token)
+                        editor.putString("username", binding.edtUsername.text.toString().trim())
+                        editor.putString("password", binding.edtPassword.text.toString().trim())
+                        editor.putString("height", account.user!!.height.toString())
+                        editor.putString("weight", account.user!!.weight.toString())
+
                         account.user?.let { editor.putInt("userId", it.id) }
                         editor.apply()
                         val intent = Intent(this, MainActivity::class.java)
@@ -54,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
                 val exception = result.exceptionOrNull()
                 if (exception != null) {
                     Toast.makeText(this, exception.message, Toast.LENGTH_LONG).show()
+                    binding.pgBar.visibility = View.GONE
                 }
             }
         }

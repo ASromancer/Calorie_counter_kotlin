@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/text"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_layout"
+    android:layout_margin="15dp"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+        <ImageView
+            android:id="@+id/foodImageView"
+            android:layout_width="100dp"
+            android:scaleType="centerCrop"
+            android:layout_height="100dp"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food name"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/foodImageView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/txtConsumedDateTime"
+            />
+
+        <TextView
+            android:id="@+id/txtConsumedCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500 kcal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/txtConsumedGram"
+            android:layout_below="@+id/txtFoodName"/>
+
+        <TextView
+            android:id="@+id/txtConsumedDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20:00:00 07/03/2023"
+            android:textStyle="italic"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/foodImageView"/>
+
+        <TextView
+            android:id="@+id/txtConsumedGram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200 gram"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/foodImageView"
+            android:layout_below="@+id/txtFoodName"/>
+
+    </LinearLayout>
+</LinearLayout>
+
+

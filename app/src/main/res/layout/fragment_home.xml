@@ -46,9 +46,9 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="36dp"
                         android:progress="25"
-                        app:indicatorColor="#F67416"
                         app:indicatorSize="140dp"
-                        app:trackColor="#D8D8D8"
+                        app:indicatorColor="@color/pink_300"
+                        app:trackColor="@color/pink_50"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +65,7 @@
                         android:fontFamily="@font/font_inter"
                         android:gravity="right"
                         android:padding="5dp"
-                        android:text="1780/2100"
+                        android:text="0/2100"
                         android:textColor="@color/black"
                         android:textFontWeight="700"
                         android:textSize="18sp"
@@ -206,21 +206,21 @@
             <LinearLayout
                 android:layout_marginTop="18dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded_layout"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_margin="18dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Consumed Calories"
                         android:textColor="@color/black"
                         android:fontFamily="@font/font_inter"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_gravity="center_vertical"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
 
@@ -230,8 +230,8 @@
 
                     <Spinner
                         android:id="@+id/reportTypeSpn"
-                        android:layout_width="86dp"
-                        android:layout_height="20dp"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/spinner_layout" />
 
                 </LinearLayout>
@@ -239,11 +239,10 @@
                 <com.github.mikephil.charting.charts.BarChart
                         android:id="@+id/barChart"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="45dp"
+                        android:layout_height="400dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                    android:layout_marginBottom="50dp"/>
+                        android:layout_marginBottom="20dp"/>
 
                 <TextView
                     android:id="@+id/btnViewHistory"
@@ -256,8 +255,6 @@
                     android:textStyle="bold|italic"
                     android:textColor="#3a94a2"
                     android:layout_gravity="bottom|center"/>
-
-
 
             </LinearLayout>
 

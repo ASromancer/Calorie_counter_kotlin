@@ -81,7 +81,8 @@ class TrackingFragment : Fragment() {
                 mAdapter = foodTrackingHistories?.let { TrackingListAdapter(it) }
                 binding.rcvTrackingList.adapter = mAdapter
                 var total: Double? = reportResponse!!.total
-                binding.tvTrackingProgreess.text = total.toString()
+                val totalInt: Int = total!!.toInt()
+                binding.tvTrackingProgreess.text = totalInt.toString()
                 var percent: Int = ((total!! / 2100) * 100).toInt()
                 binding.circularProgressIndicator.isIndeterminate = false
                 binding.circularProgressIndicator.progress = percent

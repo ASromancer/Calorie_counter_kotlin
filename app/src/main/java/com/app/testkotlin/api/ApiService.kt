@@ -4,7 +4,9 @@ import com.app.testkotlin.dto.Favorite
 import com.app.testkotlin.dto.FoodTrackingHistory
 import com.app.testkotlin.dto.LoginRequest
 import com.app.testkotlin.dto.LoginResponse
+import com.app.testkotlin.dto.Password
 import com.app.testkotlin.dto.ReportResponse
+import com.app.testkotlin.dto.UserInfo
 import com.app.testkotlin.model.Account
 import com.app.testkotlin.model.Category
 import com.app.testkotlin.model.Food
@@ -42,6 +44,12 @@ interface ApiService {
         @Path("username") username: String?,
         @Header("Authorization") token: String?
     ): Call<Account>
+
+    @PUT("accounts/changePwd")
+    fun changePassword(
+        @Header("Authorization") token: String?,
+        @Body password: Password?
+    ): Call<Void>
 
     @GET("users/{id}")
     fun getUserById(
@@ -103,4 +111,7 @@ interface ApiService {
         @Query("reportType") reportType: String?,
         @Header("Authorization") token: String?
     ): Call<ReportResponse>
+
+    @POST("auth/register")
+    fun signup(@Body userInfo: UserInfo): Call<Void>
 }
