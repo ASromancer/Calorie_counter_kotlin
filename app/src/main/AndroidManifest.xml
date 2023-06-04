@@ -17,6 +17,9 @@
         android:theme="@style/Theme.TestKotlin"
         tools:targetApi="31">
         <activity
+            android:name=".ui.forgot.ForgotActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false"
             android:label="@string/title_activity_register"

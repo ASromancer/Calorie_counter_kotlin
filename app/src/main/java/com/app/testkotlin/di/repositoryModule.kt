@@ -4,6 +4,7 @@ import com.app.testkotlin.repository.CategoryRepository
 import com.app.testkotlin.repository.FavoriteRepository
 import com.app.testkotlin.repository.FoodDetailRepository
 import com.app.testkotlin.repository.FoodRepository
+import com.app.testkotlin.repository.ForgotRepository
 import com.app.testkotlin.repository.HomeRepository
 import com.app.testkotlin.repository.LoginRepository
 import com.app.testkotlin.repository.ProfileRepository
@@ -21,6 +22,7 @@ val repositoryModule = module {
     single { ProfileRepository(get()) }
     single { HomeRepository(get()) }
     single { RegisterRepository(get()) }
+    single { ForgotRepository(get()) }
 }
 
 

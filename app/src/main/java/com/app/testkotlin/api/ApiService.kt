@@ -2,6 +2,7 @@ package com.app.testkotlin.api
 
 import com.app.testkotlin.dto.Favorite
 import com.app.testkotlin.dto.FoodTrackingHistory
+import com.app.testkotlin.dto.ForgotRequestUsernameOrEmail
 import com.app.testkotlin.dto.LoginRequest
 import com.app.testkotlin.dto.LoginResponse
 import com.app.testkotlin.dto.Password
@@ -114,4 +115,7 @@ interface ApiService {
 
     @POST("auth/register")
     fun signup(@Body userInfo: UserInfo): Call<Void>
+
+    @POST("auth/forgot")
+    fun forgot(@Body forgotRequestUsernameOrEmail: ForgotRequestUsernameOrEmail): Call<Void>
 }

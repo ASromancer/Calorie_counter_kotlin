@@ -4,6 +4,7 @@ import com.app.testkotlin.ui.detail.FoodDetailViewModel
 import com.app.testkotlin.ui.category.CategoryViewModel
 import com.app.testkotlin.ui.favorite.FavoriteViewModel
 import com.app.testkotlin.ui.food.FoodViewModel
+import com.app.testkotlin.ui.forgot.ForgotViewModel
 import com.app.testkotlin.ui.home.HomeViewModel
 import com.app.testkotlin.ui.login.LoginViewModel
 import com.app.testkotlin.ui.profile.ProfileViewModel
@@ -22,6 +23,7 @@ val viewModelModule = module {
     viewModel { ProfileViewModel(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { RegisterViewModel(get()) }
+    viewModel { ForgotViewModel(get()) }
 
 }
 

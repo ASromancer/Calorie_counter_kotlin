@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.testkotlin.MainActivity
 import com.app.testkotlin.databinding.ActivityLoginBinding
+import com.app.testkotlin.ui.forgot.ForgotActivity
 import com.app.testkotlin.ui.register.RegisterActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,6 +29,11 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSignUp.setOnClickListener {
             val intentRegister = Intent(this, RegisterActivity::class.java)
             startActivity(intentRegister)
+        }
+
+        binding.btnForgot.setOnClickListener {
+            val intentForgot = Intent(this, ForgotActivity::class.java)
+            startActivity(intentForgot)
         }
 
         binding.btnLogin.setOnClickListener {
