@@ -7,13 +7,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.testkotlin.R
 import com.app.testkotlin.databinding.FragmentFoodBinding
-import com.app.testkotlin.databinding.FragmentHomeBinding
-import com.app.testkotlin.ui.home.HomeCategoryAdapter
+import com.app.testkotlin.model.Food
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FoodFragment : Fragment() {
@@ -49,7 +48,30 @@ class FoodFragment : Fragment() {
             foodViewModel.food.observe(viewLifecycleOwner) { foodList ->
                 if (foodList != null) {
                     Log.i("Size", foodList.size.toString())
-                    binding.rcvFood.adapter = FoodAdapter(foodList)
+                    var foodAdapter= FoodAdapter(foodList)
+                    binding.rcvFood.adapter = foodAdapter
+
+                    binding.svCategory.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                        override fun onQueryTextSubmit(query: String): Boolean {
+                            return true
+                        }
+
+                        override fun onQueryTextChange(newText: String): Boolean {
+                            val filteredList: MutableList<Food> = ArrayList()
+                            for (item in foodList) {
+                                if (item.name!!.toLowerCase().contains(newText.toLowerCase())) {
+                                    filteredList.add(item)
+                                }
+                            }
+                            if (filteredList.isEmpty()) {
+                                foodAdapter.mFoodList = filteredList
+                            } else {
+                                foodAdapter.mFoodList = filteredList
+                            }
+                            return false
+                        }
+                    })
+
                 }
             }
         } else {
