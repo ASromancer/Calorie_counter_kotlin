@@ -22,12 +22,10 @@ class FoodViewModel(private val foodRepository: FoodRepository) : ViewModel() {
                     val result = response.body()
                     _food.value = result
                 } else {
-                    // Handle error
                 }
             }
 
             override fun onFailure(call: Call<List<Food>>, t: Throwable) {
-                // Handle failure
             }
         })
     }

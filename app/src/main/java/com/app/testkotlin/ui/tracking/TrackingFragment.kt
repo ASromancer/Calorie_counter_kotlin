@@ -87,6 +87,23 @@ class TrackingFragment : Fragment() {
                 binding.circularProgressIndicator.isIndeterminate = false
                 binding.circularProgressIndicator.progress = percent
                 binding.circularProgressIndicator.invalidate()
+
+                var consumedProtein = 0.0
+                var consumedFat = 0.0
+                var consumedCarb = 0.0
+                for (foodTrackingHistory in foodTrackingHistories!!) {
+                    consumedProtein += (foodTrackingHistory.food!!.protein/100)*foodTrackingHistory.consumedGram
+                    consumedFat += (foodTrackingHistory.food.fat/100)*foodTrackingHistory.consumedGram
+                    consumedCarb += (foodTrackingHistory.food.carb/100)*foodTrackingHistory.consumedGram
+                }
+                binding.linearProgressIndicator.progress = ((consumedProtein / 97) * 100).toInt()
+                binding.tvProtein.text = String.format("%.1f", consumedProtein)
+
+                binding.linearProgressIndicator2.progress = ((consumedFat / 28.7) * 100).toInt()
+                binding.tvFat.text = String.format("%.1f", consumedFat)
+
+                binding.linearProgressIndicator3.progress = ((consumedCarb / 161.6) * 100).toInt()
+                binding.tvCarb.text = String.format("%.1f", consumedCarb)
             }
         }
         trackingViewModel.fetchReport(userId, dateTime, "day", token)

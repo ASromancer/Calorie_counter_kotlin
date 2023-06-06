@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // RetrofitModule.kt
 import org.koin.dsl.module
 
+//BASE_URL = "https://calories-tracking-app.azurewebsites.net/api/v1/"
 val retrofitModule = module {
     single { createRetrofit() }
 }

@@ -56,6 +56,4 @@ class FoodFragment : Fragment() {
             Toast.makeText(activity, "ERROR", Toast.LENGTH_LONG).show()
         }
     }
-
-
 }

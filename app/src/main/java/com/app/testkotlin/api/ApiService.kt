@@ -40,6 +40,20 @@ interface ApiService {
         @Header("Authorization") token: String?
     ): Call<List<Favorite>>
 
+    @DELETE("favfoods/delete/{userId}/{foodId}")
+    fun deleteFoodFromFavorite(
+        @Path("userId") userId: Int,
+        @Path("foodId") foodId: Int,
+        @Header("Authorization") token: String?
+    ): Call<Void>
+
+    @POST("favfoods/add/{userId}/{foodId}")
+    fun addFoodToFavorite(
+        @Path("userId") userId: Int,
+        @Path("foodId") foodId: Int,
+        @Header("Authorization") token: String?
+    ): Call<Void>
+
     @GET("accounts/{username}")
     fun getAccountByUsername(
         @Path("username") username: String?,
@@ -63,14 +77,6 @@ interface ApiService {
     fun putUserData(
         @Header("Authorization") token: String?,
         @Part("user") userJson: RequestBody?
-    ): Call<Void>
-
-    @Multipart
-    @PUT("users/update")
-    fun uploadAvatar(
-        @Header("Authorization") token: String?,
-        @Part("user") userJson: RequestBody?,
-        @Part image: MultipartBody.Part?
     ): Call<Void>
 
     @GET("foods/all/category/{cateId}")
@@ -118,4 +124,14 @@ interface ApiService {
 
     @POST("auth/forgot")
     fun forgot(@Body forgotRequestUsernameOrEmail: ForgotRequestUsernameOrEmail): Call<Void>
+
+    @Multipart
+    @PUT("users/update")
+    fun uploadAvatar(
+        @Header("Authorization") token: String,
+        @Part("user") userJson: RequestBody,
+        @Part image: MultipartBody.Part
+    ): Call<Void>
+
+
 }

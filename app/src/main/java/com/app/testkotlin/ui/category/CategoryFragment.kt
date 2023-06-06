@@ -50,9 +50,6 @@ class CategoryFragment : Fragment() {
         } else {
             Toast.makeText(activity, "ERROR", Toast.LENGTH_LONG).show()
         }
-
     }
-
-
-
 }
+

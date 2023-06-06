@@ -202,7 +202,7 @@
         android:layout_marginRight="30dp"
         android:baselineAlignBottom="false"
         android:clickable="true"
-        android:src="@drawable/ic_save_circle"
+        android:src="@drawable/button_selected"
         app:backgroundTint="#D9D9D9"
         app:fabSize="normal"
         app:layout_anchor="@id/appBar"

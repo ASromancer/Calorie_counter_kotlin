@@ -22,12 +22,10 @@ class CategoryViewModel(private val categoryRepository: CategoryRepository) : Vi
                     val result = response.body()
                     _category.value = result
                 } else {
-                    // Handle error
                 }
             }
 
             override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                // Handle failure
             }
         })
     }

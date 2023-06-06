@@ -24,6 +24,5 @@ val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotViewModel(get()) }
-
 }
 
