@@ -69,9 +69,9 @@ class ChangePasswordDialog : DialogFragment() {
                             }
                             profileViewModel.changePasswordResponse.observe(viewLifecycleOwner) { boolenVar ->
                                 if (boolenVar == true) {
-//                                    dialog.dismiss()
-                                    Toast.makeText(requireActivity(), "Change password sucess!", Toast.LENGTH_LONG).show()
-                                    startNewActivityWithProgress()
+                                    dialog.dismiss()
+                                    val intentLogin = Intent(requireActivity(), LoginActivity::class.java)
+                                    startActivity(intentLogin)
                                 }
                                 else{
                                     dialog.dismiss()
